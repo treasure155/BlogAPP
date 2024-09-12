@@ -1,0 +1,26 @@
+<%- include('../partials/header') -%>
+
+<div class="container">
+  <h1>Recent Posts</h1>
+
+  <% if (posts.length > 0) { %>
+    <ul>
+      <% posts.forEach(function(post) { %>
+        <li>
+          <strong><%= post.title %></strong><br>
+          <% if (post.createdAt) { %>
+            <em>Posted on <%= post.createdAt.toDateString() %></em><br>
+          <% } else { %>
+            <em>Posted date not available</em><br>
+          <% } %>
+          <p><%= post.body ? post.body.substring(0, 100) : 'No content available' %>...</p>
+          <a href="/admin/post/<%= post._id %>">Read more</a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No posts found.</p>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') -%>

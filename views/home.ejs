@@ -1,0 +1,101 @@
+<%- include('partials/header') -%>
+
+<div id="carouselExample" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExample" data-slide-to="1"></li>
+    <li data-target="#carouselExample" data-slide-to="2"></li>
+    <li data-target="#carouselExample" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="/images/1.png" alt="Image 1" class="carousel-image">
+      <div class="carousel-caption"></div>
+    </div>
+    <div class="item">
+      <img src="/images/2.png" alt="Image 2" class="carousel-image">
+      <div class="carousel-caption"></div>
+    </div>
+    <div class="item">
+      <img src="/images/3.png" alt="Image 3" class="carousel-image">
+      <div class="carousel-caption"></div>
+    </div>
+    <div class="item">
+      <img src="/images/4.png" alt="Image 4" class="carousel-image">
+      <div class="carousel-caption"></div>
+    </div>
+  </div>
+
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carouselExample" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carouselExample" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+
+<div class="container">
+  <p><%= homeStartingContent %></p>
+
+  <div class="post-grid">
+    <% posts.forEach(function(post) { %>
+      <% if (post.category !== 'Weather') { %>
+        <div class="post">
+          <h2><%= post.title %></h2>
+          <div class="post-image">
+            <img src="/uploads/<%= post.image %>" alt="Post Image" class="post-image">
+          </div>
+          <div class="post-content">
+            <% if (post.body && post.body.length <= 200) { %>
+              <p><%- post.body.replace(/\r?\n/g, '<br>') %></p>
+            <% } else if (post.body) { %>
+              <p><%- post.body.substr(0, 200) %>... <a href="/posts/<%= post.link %>">Read more</a></p>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+    <% }) %>
+  </div>
+</div>
+</div>
+
+<!-- The modal -->
+<div class="modal" id="popupModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h4>Welcome to TechAlpha!</h4>
+        <p>Thank you for visiting TechAlpha Blog. We're thrilled to have you here,
+          and we look forward to embarking on this tech journey together. Get ready to unlock the limitless possibilities of technology and stay ahead of the curve. Let's dive in and explore the fascinating world of tech together!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
+
+<script>
+  $(document).ready(function() {
+    $('#carouselExample').carousel({
+      interval: 7000 // Set the interval in milliseconds (7 seconds)
+    });
+  });
+
+  $(document).ready(function() {
+    // Function to show the modal after 2 minutes
+    function showPopupModal() {
+      $('#popupModal').modal('show');
+    }
+
+    // Set the timeout to trigger the modal after 2 minutes (120000 milliseconds)
+    setTimeout(showPopupModal, 120000);
+  });
+
+</script>

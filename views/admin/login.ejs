@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>TechAlpha</title>
+  <meta charset="utf-8">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/site.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/4dae97c793.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+
+  <style>
+    .Admin {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #05014A;
+      padding: 20px;
+      border-radius: 5px;
+      color: white;
+      padding-top: 30px;
+    margin-top: 70px
+    }
+    </style>
+
+</head>
+
+
+<div class="Admin">
+  <h1>Admin Login</h1>
+  <form action="/admin/login" method="POST">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

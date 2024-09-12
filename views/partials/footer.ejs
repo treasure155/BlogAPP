@@ -1,0 +1,86 @@
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-lg-4 mb-4">
+                <h5 class="text-uppercase mb-3">About TechAlpha</h5>
+                <p>
+                    TechAlpha is dedicated to promoting technology education and skills development among young minds. Our mission is to bridge the digital divide by offering comprehensive training programs, community outreach, and more.
+                </p>
+                <a href="/about" class="text-white text-decoration-none">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-2 mb-4">
+                <h5 class="text-uppercase mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href="/blog" class="text-white text-decoration-none">Blog</a></li>
+                    <li><a href="/services" class="text-white text-decoration-none">Services</a></li>
+                    <li><a href="/contact" class="text-white text-decoration-none">Contact</a></li>
+                    <li><a href="/privacy" class="text-white text-decoration-none">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+<div class="col-lg-3 mb-4">
+  <h5 class="text-uppercase mb-3">Recent Posts</h5>
+  <ul class="list-unstyled">
+    <% recentPosts.forEach(function(post) { %>
+      <li>
+        <a href="/posts/<%= post.link %>" class="text-white text-decoration-none"><%= post.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+
+            <!-- Contact Section -->
+            <div class="col-lg-3 mb-4">
+                <h5 class="text-uppercase mb-3">Contact Us</h5>
+                <p><i class="fas fa-map-marker-alt"></i> 139 Etinan-Uyo Road, Etinan, Akwa Ibom State</p>
+                <p><i class="fas fa-phone-alt"></i> +2347066155981</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:admin@techalphahub.com" class="text-white text-decoration-none">admin@techalphahub.com</a></p>
+
+                <div class="social-links mt-3">
+                    <a href="https://www.facebook.com/TechAlpha" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/TechAlpha" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/TechAlpha" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/techalpha" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary">
+        <form id="subscribe-form" method="POST" action="/subscribe">
+          <div class="form-group row">
+            <div class="col-md-4 mb-3">
+              <label for="name" class="form-label">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Your email address" required>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+            </div>
+          </div>
+        </form>
+              
+        <!-- Footer Bottom -->
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-0">&copy; <%= new Date().getFullYear() %> TechAlpha Hub. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="/terms" class="text-white text-decoration-none me-3">Terms of Service</a>
+                <a href="/cookies" class="text-white text-decoration-none">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+  <!-- Your content here -->
+  <div class="post-content-wrapper">
+    <!-- Display the post image if available -->
+    <% if (post.image) { %>
+      <img class="post-image" src="/uploads/<%= post.image %>" alt="Post Image">
+    <% } %>
+    
+    <h1><%= post.title %></h1>
+
+    <!-- Render the post body with HTML content -->
+    <div class="post-content">
+      <%- post.body %>
+    </div>
+  </div>
+</div>
+
+<!-- The modal -->
+<div class="modal" id="popupModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h4>Welcome to TechAlpha!</h4>
+        <p>Thank you for visiting TechAlpha Blog. We're thrilled to have you here and look forward to embarking on this tech journey together. Get ready to unlock the limitless possibilities of technology and stay ahead of the curve. Let's dive in and explore the fascinating world of tech together!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // Show the modal after 2 minutes
+    setTimeout(function() {
+      $('#popupModal').modal('show');
+    }, 120000); // 2 minutes
+  });
+</script>
+
+<%- include('partials/footer') -%>

@@ -1,0 +1,56 @@
+<%- include('partials/header') -%>
+
+<div class="compose">
+  <h1>Apps</h1>
+
+  <!-- Weather App Section -->
+    <div class="col-md">
+      <div class="weather">
+        <h2 class="compose" >Weather App</h2>
+        <form class="mt-4" method="POST" action="/weather">
+          <div class="form-group">
+            <label for="location">Enter Location:</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="E.g., London, UK" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Get Weather</button>
+        </form>
+
+        <% if (weather) { %>
+          <div class="mt-4">
+            <h3>Weather Information for <%= weather.name %>:</h3>
+            <p>Temperature: <%= weather.main.temp %> °C</p>
+            <p>Humidity: <%= weather.main.humidity %> %</p>
+            <p>Weather Description: <%= weather.weather[0].description %></p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<section class="container">
+  <div class="post-grid">
+    <% if (posts) { %>
+      <% posts.forEach(function(post) { %>
+        <div class="post">
+          <h2><%= post.title %></h2>
+          <div class="post-image">
+            <img src="/uploads/<%= post.image %>" alt="Post Image" class="post-image">
+          </div>
+          <div class="post-content">
+            <% if (post.body && post.body.length <= 200) { %>
+              <p><%- post.body.replace(/\r?\n/g, '<br>') %></p>
+            <% } else if (post.body) { %>
+              <p><%- post.body.substr(0, 200) %>... <a href="/posts/<%= post.link %>">Read more</a></p>
+            <% } %>
+          </div>
+          <% if (post.category === 'Weather') { %>
+            <div class="post-tags">
+              <p><strong>Category: </strong><%= post.category %></p>
+            </div>
+          <% } %>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</div>
+</section>
+<%- include('partials/footer') -%>

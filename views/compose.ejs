@@ -1,0 +1,58 @@
+<%- include('partials/header') -%>
+<% if (admin) { %>
+<div class="compose">
+  <h1>Compose</h1>
+
+  <form action="/compose" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="title">Post Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title">
+    </div>
+    
+    <div class="form-group">
+      <label for="image">Upload Image</label>
+      <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+  
+    <div class="form-group">
+      <label for="content">Post Content</label>
+      <textarea class="form-control" id="content" name="content" rows="4" placeholder="Enter post content"></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="tags">Tags (separated by commas)</label>
+      <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter tags for the post">
+    </div>
+  
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select class="form-control" id="category" name="category">
+        <option value="General">General</option>
+        <option value="Weather">Weather</option>
+        <option value="Technology">Technology</option>
+        <option value="Finance">Finance</option>
+      </select>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Publish</button>
+  </form>
+</div>
+<% } else { %>
+<div class="container">
+  <h1>Unauthorized Access</h1>
+  <p>Please login as an admin to access this page.</p>
+</div>
+<% } %>
+
+<script>
+  tinymce.init({
+    selector: '#content',  // The selector for your textarea
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    height: 400,
+    branding: false,
+    menubar: false
+  });
+</script>
+
+<%- include('partials/footer') -%>

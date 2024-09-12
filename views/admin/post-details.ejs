@@ -1,0 +1,15 @@
+<%- include('../partials/header') -%>
+
+<div class="container">
+  <h1><%= post.title %></h1>
+  <p><strong>Category:</strong> <%= post.category %></p>
+  <p><strong>Tags:</strong> <%= post.tags %></p>
+  <p><strong>Posted on:</strong> <%= post.createdAt ? post.createdAt.toDateString() : 'Date not available' %></p>
+  <p><%= post.body %></p>
+  <% if (post.image) { %>
+    <img src="<%= post.image %>" alt="<%= post.title %>" class="img-fluid">
+  <% } %>
+  <a href="/admin/posts" class="btn btn-secondary mt-3">Back to Posts</a>
+</div>
+
+<%- include('../partials/footer') -%>
